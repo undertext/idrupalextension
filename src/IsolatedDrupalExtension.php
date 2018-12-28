@@ -60,8 +60,8 @@ class IsolatedDrupalExtension implements Extension {
   public function load(ContainerBuilder $container, array $config) {
     $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../config'));
     $loader->load('services.yml');
-    $container->setParameter('isolated_drupal.profile', $config['profile']);
-    $container->setParameter('isolated_drupal.reuse_installation', $config['reuse_installation']);
+    $container->setParameter('idrupalextension.profile', $config['profile']);
+    $container->setParameter('idrupalextension.reuse_installation', $config['reuse_installation']);
 
     $this->replaceMinkService($container);
   }
