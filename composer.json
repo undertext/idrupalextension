@@ -1,0 +1,13 @@
+{
+    "name": "undertext/idrupalextension",
+    "description": "Isolated Drupal extension for Behat",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "undertext\\idrupalextension\\": "src"
+        }
+    },
+    "require": {
+        "drupal/drupal-extension": "^4.0"
+    }
+}

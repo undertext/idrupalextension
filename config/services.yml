@@ -1,0 +1,10 @@
+services:
+  idrupalextension.test_site_installer:
+    class: undertext\idrupalextension\DrupalTestSiteInstaller
+    arguments: ['%drupal.driver.drupal.drupal_root%', '%idrupalextension.profile%', '%idrupalextension.reuse_installation%']
+  idrupalextension.listener.install_site:
+    class: undertext\idrupalextension\Listener\InstallSiteListener
+    arguments:
+      - '@idrupalextension.test_site_installer'
+    tags:
+      - { name: event_dispatcher.subscriber }
