@@ -77,7 +77,7 @@ class IsolatedDrupalExtension implements Extension {
     $minkDefinition = $container->getDefinition(MinkExtension::MINK_ID);
     $minkDefinition->setClass('\undertext\idrupalextension\DrupalAwareMink');
     $minkDefinition->setArguments([
-      new Reference('isolated_drupal_extension.test_site_installer'),
+      new Reference('idrupalextension.test_site_installer'),
       '%mink.base_url%',
     ]);
     $container->setDefinition(MinkExtension::MINK_ID, $minkDefinition);
