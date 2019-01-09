@@ -31,7 +31,7 @@
         }
     },
     "scripts": {
-        "pre-install-cmd": "rm -rf vendor/undertext/idrupalextension && ln -s ../../../ vendor/undertext/idrupalextension",
-        "pre-update-cmd": "rm -rf vendor/undertext/idrupalextension && ln -s ../../../ vendor/undertext/idrupalextension"
+        "post-install-cmd": "rm -rf vendor/undertext/idrupalextension && ln -s ../../../ vendor/undertext/idrupalextension && composer dump-autoload",
+        "post-update-cmd": "rm -rf vendor/undertext/idrupalextension && ln -s ../../../ vendor/undertext/idrupalextension && composer dump-autoload"
     }
 }
