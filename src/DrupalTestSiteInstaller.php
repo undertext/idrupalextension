@@ -119,7 +119,7 @@ class DrupalTestSiteInstaller {
     if ($this->isInstallationNeeded) {
       $last_updated_directory = FileSystemUtility::getLastUpdatedDirectory($this->drupalRoot . '/' . self::TEST_SITE_DIRECTORY);
       if (!empty($last_updated_directory)) {
-        FileSystemUtility::cleanDirectory($this->drupalRoot . '/' . self::TEST_SITE_DIRECTORY . '/' . $last_updated_directory);
+        FileSystemUtility::cleanDirectory($this->drupalRoot . '/' . self::TEST_SITE_DIRECTORY);
       }
       $class_loader = require $this->drupalRoot . '/autoload.php';
       chdir($this->drupalRoot);
@@ -137,7 +137,7 @@ class DrupalTestSiteInstaller {
     if (!$this->reuseInstallation) {
       Database::closeConnection();
       unlink($this->drupalRoot . '/test_database.sqlite');
-      FileSystemUtility::cleanDirectory($this->drupalRoot . '/' . self::TEST_SITE_DIRECTORY . '/' . $this->siteId);
+      FileSystemUtility::cleanDirectory($this->drupalRoot . '/' . self::TEST_SITE_DIRECTORY);
     }
   }
 

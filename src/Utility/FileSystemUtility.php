@@ -26,8 +26,7 @@ class FileSystemUtility {
   }
 
   /**
-   * Remove all files/directories from the given directory and the directory
-   * itself.
+   * Remove all files/directories from the given directory.
    *
    * @param string $directory
    *   Path to the directory.
@@ -41,7 +40,6 @@ class FileSystemUtility {
     foreach ($ri as $file) {
       $file->isDir() ? rmdir($file->getRealPath()) : unlink($file->getRealPath());
     }
-    rmdir($directory);
     return TRUE;
   }
 
