@@ -11,7 +11,7 @@ before_script:
   - ../vendor/bin/drush runserver :8888 > ~/debug.txt 2>&1 &
 
 script:
-  - cd test_drupal_installation/tests
+  - cd ../tests
   - ../vendor/bin/behat
   - '[ -z "$(ls -A ../docroot/sites/simpletest)" ] && exit 1'
   - '[ -f ../docroot/test_database.sqlite ] || exit 1'
