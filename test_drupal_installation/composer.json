@@ -1,0 +1,37 @@
+{
+    "name": "idrupalextension/test_drupal_installation",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    },
+    "require": {
+        "composer/installers": "^1.2",
+        "drupal-composer/drupal-scaffold": "^2.2",
+        "drupal/core": "^8.6",
+        "drush/drush": "~8.1",
+        "undertext/idrupalextension": "*"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "installer-paths": {
+            "docroot/core": [
+                "type:drupal-core"
+            ]
+        }
+    },
+    "scripts": {
+        "pre-install-cmd": "rm -rf vendor/undertext/idrupalextension && ln -s ../../../ vendor/undertext/idrupalextension",
+        "pre-update-cmd": "rm -rf vendor/undertext/idrupalextension && ln -s ../../../ vendor/undertext/idrupalextension"
+    }
+}

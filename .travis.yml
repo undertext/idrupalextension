@@ -1,0 +1,21 @@
+language: php
+
+install:
+  - composer self-update
+
+before_script:
+  - cd test_drupal_installation
+  - composer update
+  - cd docroot
+  - ../vendor/bin/drush site-install --db-url=sqlite://test_drupal_installation.sql -y
+  - ../vendor/bin/drush runserver :8888 > ~/debug.txt 2>&1 &
+
+script:
+  - cd test_drupal_installation/tests
+  - ../vendor/bin/behat
+  - [ -z "$(ls -A ../docroot/sites/simpletest)" ] && exit 1
+  - [ -f ../docroot/test_database.sqlite ] || exit 1
+  - ../vendor/bin/behat
+
+after_failure:
+  - cat ~/debug.txt
