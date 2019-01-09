@@ -104,8 +104,8 @@ class DrupalTestSiteInstaller {
         $this->isInstallationNeeded = FALSE;
         $this->siteId = FileSystemUtility::getLastUpdatedDirectory($sitesDir);
         define('DRUPAL_TEST_IN_CHILD_SITE', FALSE);
-        // @todo Research how this hack can be removed.
-        $_SERVER['REQUEST_TIME'] = $_SERVER['REQUEST_TIME'] + 1;
+        // We need to fix REQUEST_TIME because it is set very early on drupal-behat-extension bootstrap phase.
+        $_SERVER['REQUEST_TIME'] = time();
         require_once $this->drupalRoot . '/core/includes/bootstrap.inc';
         $_COOKIE['SIMPLETEST_USER_AGENT'] = drupal_generate_test_ua('test' . $this->siteId);
       }
