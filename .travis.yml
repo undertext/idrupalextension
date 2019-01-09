@@ -13,8 +13,8 @@ before_script:
 script:
   - cd test_drupal_installation/tests
   - ../vendor/bin/behat
-  - [ -z "$(ls -A ../docroot/sites/simpletest)" ] && exit 1
-  - [ -f ../docroot/test_database.sqlite ] || exit 1
+  - '[ -z "$(ls -A ../docroot/sites/simpletest)" ] && exit 1'
+  - '[ -f ../docroot/test_database.sqlite ] || exit 1'
   - ../vendor/bin/behat
 
 after_failure:
