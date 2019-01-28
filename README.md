@@ -31,3 +31,5 @@ Modify your `behat.yml`, add next lines :
 This extension provides 2 configurable parameters: 
  - profile : the name of the profile to install
  - reuse_installation: do not reinstall test site installation each time
+
+[![Build Status](https://travis-ci.com/undertext/idrupalextension.svg?branch=master)](https://travis-ci.com/undertext/idrupalextension)
