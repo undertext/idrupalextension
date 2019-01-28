@@ -127,6 +127,9 @@ class DrupalTestSiteInstaller {
       require_once $this->drupalRoot . '/core/includes/install.core.inc';
       install_drupal($class_loader, $this->getInstallParameters());
       chmod($this->siteDirectory, 0777);
+      require_once $this->drupalRoot . '/core/includes/bootstrap.inc';
+      drupal_valid_test_ua('test' . $this->siteId);
+      $_COOKIE['SIMPLETEST_USER_AGENT'] =  drupal_generate_test_ua('test' . $this->siteId);
     }
   }
 
@@ -135,9 +138,11 @@ class DrupalTestSiteInstaller {
    */
   public function cleanup() {
     if (!$this->reuseInstallation) {
-      Database::closeConnection();
-      unlink($this->drupalRoot . '/test_database.sqlite');
-      FileSystemUtility::cleanDirectory($this->drupalRoot . '/' . self::TEST_SITE_DIRECTORY);
+      drupal_register_shutdown_function(function () {
+        Database::closeConnection();
+        unlink($this->drupalRoot . '/test_database.sqlite');
+        FileSystemUtility::cleanDirectory($this->drupalRoot . '/' . self::TEST_SITE_DIRECTORY);
+      });
     }
   }
 
