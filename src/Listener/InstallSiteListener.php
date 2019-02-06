@@ -21,6 +21,9 @@ final class InstallSiteListener implements EventSubscriberInterface {
    */
   private $testSiteInstaller;
 
+  /**
+   * {@inheritdoc}
+   */
   public static function getSubscribedEvents() {
     return [
       SuiteTested::BEFORE => ['onBeforeSuiteTested', 255],

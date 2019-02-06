@@ -14,7 +14,7 @@ class FileSystemUtility {
   /**
    * Get number of files/directories inside given directory.
    *
-   * @param $directory
+   * @param string $directory
    *   Directory to look into.
    *
    * @return int
@@ -46,7 +46,7 @@ class FileSystemUtility {
   /**
    * Get last updated directory inside given directory.
    *
-   * @param $directory
+   * @param string $directory
    *   Given directory.
    *
    * @return string|null

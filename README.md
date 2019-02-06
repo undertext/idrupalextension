@@ -7,7 +7,7 @@ It works much more like Drupal's `BrowserTest`.
 If you have a Drupal site and run a `behat` command then :
  - A new site will be created at `sites/simpletest/{timestamp}` with an SQLite database and with given in configuration profile name.
  - Behat tests will run on this new installation.
- - At the end of testing, `sites/simpletest` directory will be cleaned up if `reuse_installation` configuration value is set to TRUE.
+ - At the end of testing, `sites/simpletest` directory will be cleaned up if `reuse_installation` configuration value isn't set to TRUE.
 
 ### Requirements
 This extension is tested with `Drupal 8.6`.
@@ -29,7 +29,7 @@ Modify your `behat.yml`, add next lines :
   ```
 
 This extension provides 2 configurable parameters: 
- - profile : the name of the profile to install
- - reuse_installation: do not reinstall test site installation each time
+ - profile : name of the profile to install
+ - reuse_installation: do not reinstall test site installation each time if set to TRUE
 
 [![Build Status](https://travis-ci.com/undertext/idrupalextension.svg?branch=master)](https://travis-ci.com/undertext/idrupalextension)
